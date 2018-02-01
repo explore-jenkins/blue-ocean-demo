@@ -13,11 +13,17 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '"${tool \'gradle32\'}/bin/gradle build"'
+        sh "${tool 'gradle32'}/bin/gradle build"
       }
     }
   }
   environment {
     COMPLETED_MSG = 'Build done!'
   }
+  post {
+    always {
+	sh 'echo $COMPLETED_MSG'
+    }
+  }
 }
+
