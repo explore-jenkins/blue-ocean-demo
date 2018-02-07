@@ -13,8 +13,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        tool 'gradle32'
-        sh 'gradle build'
+        sh '${tool \'gradle32\'}/bin/gradle build'
       }
     }
   }
